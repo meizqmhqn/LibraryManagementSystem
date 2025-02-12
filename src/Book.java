@@ -1,44 +1,30 @@
-public class Book {
-    private String title;
-    private String author;
+package com.library;
+
+public class Book extends LibraryItem {
     private String ISBN;
+    private int year;
 
-    public Book(String title, String author, String ISBN) {
-        this.title = title;
-        this.author = author;
+    public Book(String title, String author, String ISBN, int year) {
+        super(title, author);
         this.ISBN = ISBN;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
+        this.year = year;
     }
 
     public String getISBN() {
         return ISBN;
     }
 
-    public void setISBN(String ISBN) {
-        this.ISBN = ISBN;
+    public int getYear() {
+        return year;
+    }
+
+    @Override
+    public void displayInfo() {
+        System.out.println("Book: " + getTitle() + " by " + getAuthor() + ", ISBN: " + ISBN + ", Year: " + year);
     }
 
     @Override
     public String toString() {
-        return "Book{" +
-                "title='" + title + '\'' +
-                ", author='" + author + '\'' +
-                ", ISBN='" + ISBN + '\'' +
-                '}';
+        return super.toString() + ", ISBN=" + ISBN + ", Year=" + year;
     }
 }
